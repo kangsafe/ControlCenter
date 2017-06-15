@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/global_background</item>
+        <item name="android:windowAnimationStyle">@style/ActAnimation</item>
+    </style>
+    <style name="TranslucentFullscreenTheme" parent="@android:style/Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+    <style name="ActAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+    <style name="AppButton" />
+    <style name="AppButton.Blue" parent="@style/AppButton">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">@color/button_text_white</item>
+    </style>
+    <style name="AppButton.BlueBorder" parent="@style/AppButton">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+    <style name="AppButton.BlueBorder.Mini" parent="@style/AppButton.BlueBorder">
+        <item name="android:textSize">@dimen/text_tips</item>
+    </style>
+    <style name="AppButton.ResultButton" parent="@style/AppButton">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="AppButton.Start" parent="@style/AppButton">
+        <item name="android:padding">@dimen/control_button_padding</item>
+        <item name="android:layout_width">@dimen/control_button_small</item>
+        <item name="android:layout_height">@dimen/control_button_small</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="AppButton.Switch" parent="@style/AppButton">
+        <item name="android:padding">15.0dip</item>
+        <item name="android:layout_width">@dimen/control_switch</item>
+        <item name="android:layout_height">@dimen/control_switch</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="AppButton.White" parent="@style/AppButton">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">@color/button_text_gray</item>
+    </style>
+    <style name="AppButton.WhiteBorder" parent="@style/AppButton">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">@color/button_text_gray</item>
+    </style>
+    <style name="AppFont" />
+    <style name="AppFont.BigTitle" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/titlebig</item>
+        <item name="android:textColor">@color/primary_txt_color</item>
+    </style>
+    <style name="AppFont.Content" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/text_content</item>
+    </style>
+    <style name="AppFont.Form" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_1</item>
+    </style>
+    <style name="AppFont.Form.Input" parent="@style/AppFont.Form">
+        <item name="android:textColor">@color/text_1</item>
+        <item name="android:textColorHint">@color/text_tips</item>
+    </style>
+    <style name="AppFont.Form.Label" parent="@style/AppFont.Form">
+        <item name="android:textColor">@color/cn_text_label</item>
+    </style>
+    <style name="AppFont.Important" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/important</item>
+    </style>
+    <style name="AppFont.Label" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/text_3</item>
+    </style>
+    <style name="AppFont.SubTitle" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/primary_txt_color</item>
+    </style>
+    <style name="AppFont.Text1" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_1</item>
+        <item name="android:textColor">@color/text_1</item>
+    </style>
+    <style name="AppFont.Text2" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/text_2</item>
+    </style>
+    <style name="AppFont.Text3" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_3</item>
+        <item name="android:textColor">@color/text_3</item>
+    </style>
+    <style name="AppFont.Text3Color" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_3</item>
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+    <style name="AppFont.TextTips" parent="@style/AppFont">
+        <item name="android:textColor">@color/text_tips</item>
+    </style>
+    <style name="AppFont.TextTips.Blue" parent="@style/AppFont.TextTips">
+        <item name="android:textSize">@dimen/text_1</item>
+    </style>
+    <style name="AppFont.TextTips.Midum" parent="@style/AppFont.TextTips">
+        <item name="android:textSize">@dimen/text_1</item>
+    </style>
+    <style name="AppFont.TextTips.Mini" parent="@style/AppFont.TextTips">
+        <item name="android:textSize">@dimen/text_tips</item>
+    </style>
+    <style name="AppFont.TitleBar" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/titlebar</item>
+        <item name="android:textColor">@color/titlebar</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="AppFont.TitleBar.White" parent="@style/AppFont.TitleBar">
+        <item name="android:textColor">@color/primary_txt_color</item>
+    </style>
+    <style name="AppFont.Warning" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/warning</item>
+    </style>
+    <style name="AppFont.Welldone" parent="@style/AppFont">
+        <item name="android:textSize">@dimen/text_2</item>
+        <item name="android:textColor">@color/welldone</item>
+    </style>
+    <style name="CaptureTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/ActAnimation</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="ResultButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="ShareButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
