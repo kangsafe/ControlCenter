@@ -23,11 +23,14 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     private int num = 1;
     private Handler handler;
     private boolean status = false;
-    private Camera camera = Camera.open();
-    private Camera.Parameters parameters;
+    private FlashLightManager flashLightManager;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
+        if (flashLightManager == null) {
+            flashLightManager = new FlashLightManager(context);
+            flashLightManager.init();
+        }
         String action = intent.getAction();
         Log.i(LOG_TAG, "onReceive: action: " + action);
         if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
@@ -39,7 +42,7 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
                 // 短按Home键
                 Log.i(LOG_TAG, "homekey" + System.currentTimeMillis() + ":" + lastTime);
                 //双击
-                if ((System.currentTimeMillis() - lastTime) < 1000) {
+                if ((System.currentTimeMillis() - lastTime) < 500) {
                     num++;
                     Log.i(LOG_TAG, "homekey点击次数" + num);
                 } else {
@@ -53,19 +56,10 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
                             public void run() {
                                 if (num == 1) {
                                     Log.i(LOG_TAG, "单击");
-//                                    MyWindowManager.removeBigWindow(context);
-                                    MyWindowManager.createCtrlCenterBigWindow(context);
-                                } else if (num == 2) {
+                                    MyWindowManager.removeCtrlCenterBigWindow(context);
+                                } else if (num >= 2) {
                                     Log.i(LOG_TAG, "双击");
-
-                                    if (!status) {
-                                        status = true;
-                                        new Thread(new TurnOnLight()).start();
-                                    } else {
-                                        status = false;
-                                        parameters.setFlashMode("off");
-                                        camera.setParameters(parameters);
-                                    }
+                                    MyWindowManager.createCtrlCenterBigWindow(context);
                                 } else {
                                     Log.i(LOG_TAG, "三连击");
                                 }
@@ -73,33 +67,34 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
                                 num = 1;
                                 handler = null;
                             }
-                        }, 1000);
+                        }, 500);
                     }
                 }
             } else if (SYSTEM_DIALOG_REASON_RECENT_APPS.equals(reason)) {
                 // 长按Home键 或者 activity切换键
                 Log.i(LOG_TAG, "long press home key or activity switch");
-
+                doLongPress();
             } else if (SYSTEM_DIALOG_REASON_LOCK.equals(reason)) {
                 // 锁屏
                 Log.i(LOG_TAG, "lock");
             } else if (SYSTEM_DIALOG_REASON_ASSIST.equals(reason)) {
                 // samsung 长按Home键
                 Log.i(LOG_TAG, "assist");
+                doLongPress();
             } else if (SYSTEM_DIALOG_REASON_VOICE.equals(reason)) {
                 //google nuex 6p 长按Home键
+                doLongPress();
             }
-
         }
     }
 
-    private class TurnOnLight implements Runnable {
-        @Override
-        public void run() {
-            HomeWatcherReceiver.this.parameters = HomeWatcherReceiver.this.camera.getParameters();
-            HomeWatcherReceiver.this.parameters.setFlashMode("torch");
-            HomeWatcherReceiver.this.camera.setParameters(HomeWatcherReceiver.this.parameters);
+    private void doLongPress() {
+        if (!status) {
+            status = true;
+            flashLightManager.turnOn();
+        } else {
+            status = false;
+            flashLightManager.turnOff();
         }
     }
-
 }
