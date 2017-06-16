@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                dialog.dismiss();
                             }
                         });
             }
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         "未使用黑科技保活，你来决定让它随时服务。", "查看保护方法", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), WebActivity.class);
                         intent.putExtra("url", "https://control.litesuits.com/");
                         getApplicationContext().startActivity(intent);
